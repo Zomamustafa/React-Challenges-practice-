@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+                        //Challenge 1
+
+           // Create a function sum() that will sum all arguments passed to it.
+             //   Quantity of the arguments is unknown.
+               // Use console.log() at the end of the sum() function to print result.
+                //Use ES6 whenever possible.
+                    
+              //reduce=The reduce() method reduces the array to a single value.
+              // The reduce() method executes a provided function for each value of the array (from left-to-right). 
+              //The return value of the function is stored in an accumulator (result/total).
+            
+                // (array mai jitne bhi values hoti hain os py ak function run krta hai ,
+                //or hum jo bhi operation perform krwaty hain unhe ak single value mai dy deta haiii reduce )
+                
+            
+
+            "use strict()";
+                const sum = (...args) => {
+                    return args.reduce((a, b) => a + b, 0);
+                }
+                console.log(sum(1, 2, 3));
+            
+
+
+
+
+                        //challenge 2 -const
+
+                        "use strict";
+                            const arr = [1, 2];
+                            arr.push(3);
+                            console.log(arr);
+                 //1. Why no error is generated after the line 14 ?
+                 // because the code is correct
+
+                    
+                        const array = [1, 2, 3, 4];
+                                // BEFORE: Uncaught TypeError:
+                                //   Assignment to constant variable.
+                                // AFTER: No error
+
+                                console.log(array);
+            //2. Why after the line 19 TypeError is generated?
+            //(because humne upper const liya hua va hai or const ka mtlb hai no declared or nor change tou 
+            // humhe yahn phr say const ko declared krwana prhy ga , or jo ar likha os ka naam bhi change krna prhy ga )
+
+
+                            //challenge 3 - let
+
+                            //Change code to match output.
+
+                    "use strict";
+
+                        var i = 10;
+
+                        for (let i = 0; i < 5; i++) {
+                            // 
+                            console.log(i);
+                        }
+                        console.log(i); 
+            //is mai locally globally wala concept hai
+
+                        //challenge 4 -hoisting
+
+                //        Change code to fix first error after the line 15.
+                  //  Error after the line 20 should still be generated.
+
+                   "use strict";
+
+                    var a = 5,
+                        b = 10;
+
+                    if (b > a) {
+                        let c = 2;
+                        c = a + b + c;
+                        console.log(c);
+    
+                    }
+
+                    //console.log(c);
+
+                    //challenge 5- ternary operators
+
+              //Change contents of the isNumber function
+               // using ternary operator.
+
+              // boolean values true or false
+                 
+                    "use strict";
+
+                function isNumber(a) {
+                 return typeof a === "number" ? "That's number" : "That's not a number";
+                }
+
+                console.log(isNumber(700));
+                
+
+                console.log(isNumber("hello"));
+            
+
+                console.log(isNumber(true));
+                
+                        
+
+                        //challenge 6 - arrow function
+                
+                    //Use arrow functions instead of functions
+                        //where possible.
+
+                        
+                        "use strict";
+                        // function mult(a, b) {
+    //   return a * b;
+    // }
+
+// setTimeout(function() {
+//   console.log(mult(5, 10));
+// }, 1000);
+// 50
+
+            
+    
+             var mult = (a, b) => a * b;
+                setTimeout(() => console.log(mult(5, 10)), 1000);
+
+            
+
+
+
+              //challenge 7 - default parameter
+
+              // Why on the line 14 we can't simply use following statement:
+               // mult = mult || 2;
+
+               // in line 14 its just a extra line we simply multiple by 2
+
+               function multiplyBy(a, mult = 2) {
+                    console.log(a * mult);
+                }
+
+            multiplyBy(2);
+            multiplyBy(2, undefined);
+                multiplyBy(2, 0); 
+                multiplyBy(5, 10);
+
+
+
+
+
+
+                      //challenge 8 - Check presence of the function parameters
+
+                       // Throw Error when function square() is called
+                        //without arguments.
+                        //throw exception user define hoti hai
+
+                    //The throw statement throws a user - defined exception.Execution of 
+                    //the current function will stop(the statements after throw won't be executed), 
+                    //and control will be passed to the first catch block in the call stack. 
+                    //If no catch block exists among caller functions, the program will terminate.
+                          
+
+                        //Create new function and use it as default parameter.
+
+                        //  before
+                       //  "use strict";
+
+                         //   function square(a) {
+                           //     console.log(a * a);
+                            //}
+
+                            //square(10);
+                            // 100
+
+                            //square();
+
+                         //after (smjh nahi aya hai smjhna hai )
+                        // "use strict";
+
+                          //  function missingArg() {
+                            //    throw new Error("Function square requires an argument!");
+                            //}
+
+                            //function square(a = missingArg()) {
+                              //  console.log(a * a);
+                            //}
+
+                       // square(10);
+                 
+                          //  square();
+
+
+          //challenge 9 - object destructing 
+
+                //  Declare mult() function that will multiply values
+                  //  of the x, y, z fields of the passed object.
+
+                "use strict";
+
+                    var obj = {
+                        x: 5,
+                        y: 20,
+                        z: 3
+                    };
+                   //  console.log(obj.x);
+                   function multiply ( x,y,z){
+                       console.log(x*y*z);
+                       
+                   }
+                    multiply("5" , "20" ,"3");
+
+
+
+                    //challenge 10 -Destructuring and Rest Operator
+
+                      // Assign values to the a, b, c variables
+                       // using destructuring and rest operator.
+
+
+
+                    "use strict";
+
+                      //var a , b, c;
+
+                    const number=[1,2,3,4,5,6,7]
+
+                     const [o , j , ...k] = number;
+                    
+                    console.log(o,j,k);
+                    
+
+                      //challenge 11 - spread operator 
+
+                      //Use Spread Operator to construct arr variable.
+
+                      var a, b, c, d, arrayyyy;
+
+                        a = [1, 2];
+                        b = [4, 5];
+                        c = [8, 9, 10];
+                        d = 11;
+                        arrayyyy = [0, ...a, 3, ...b, 6, 7, ...c, d];
+                        console.log(arrayyyy);
+
+              
+            
+                  //challenge 12 - Copy Array
+                  
+               "use strict";
+
+                var a = [1, 2, 3];
+
+                var b;
+                  b = [...a];
+
+                    b.push("newElement");
+
+                    console.log(a);
+                    
+
+                    console.log(b);
+
+
+
+                    //challenge 13 - Template Literals(smjhna hai)
+
+
+                        //Create carInfo() function that
+                          //  will return info about each car.
+                        //Car is considered cheap if it's price is <= 20000
+                       // Car is considered expensive it it's price is > 20000
+
+                        //  "use strict";
+
+                            // var cars = [
+                            //     { brand: "Honda", price: 13000 },
+                            //     { brand: "Rolls-Royce", price: 120000 }
+                            // ];
+
+                            // function carInfo(car) {
+                            //     return `Price of my new ${car.brand} \
+                            // is ${car.price}$ and it is \
+                            //       ${car.price <= 20000 ? "cheap" : "expensive"} car.`;
+                            // }
+
+                            // cars.forEach(car => console.log(carInfo(car)));
+                            /* Price of my new Honda is 13000$
+                             and it is cheap car. */
+
+                            /* Price of my new Rolls-Royce
+                             is 120000$ and it is expensive car. */
+
+
+
+                             //challenge 14 - Object Destructuring
+
+                                // Create shortPerson() function that will destructure each person object.
+                                // Sample result:
+                                // { n: "Mike", c: "Spain", a: 23, p: 100 }
+                                // If input object doesn't have postsQuantity field
+                                // it should get default value 0.
+
+                                   "use strict";
+
+                                    var person1 = {
+                                        name: "Mike",
+                                        info: {
+                                            country: "Spain",
+                                            age: 23
+                                        },
+                                        postsQuantity: 100
+                                    };
+
+                                    var person2 = {
+                                        name: "Alice",
+                                        info: {
+                                            country: "Italy",
+                                            age: 25
+                                        }
+                                    };
+
+                            function shortPerson(obj){
+                                var {
+                                    name: n,
+                                    info: { country: c, age: a },
+                                    postsQuantity: p = 0
+                                } = obj;
+
+                                       return {
+                                    n,
+                                    c,
+                                    a,
+                                    p
+                                };
+                            }
+                                
+                            console.log(shortPerson(person1));
+                            console.log(shortPerson(person2));
+
+
+
+                            //CHALLENGE 15 - Iterate over String
+
+                            // Count number of the lowercase vowel letters in the string.
+                            //     Vowel letters - a, e, i, o, u
+
+
+                            // before
+//                             "use strict";
+
+//                                 var vowelsCount = 0;
+//                                 var vowels = ["a", "e", "i", "o", "u"];
+
+//                                 var str = "Today is best day of my life";
+
+//                                 // Write code here
+
+//                                 for (s of str) {
+//                                     if (vowels.includes(s)) {
+//                                         vowelsCount++;
+//                                     }
+
+//                                 }
+
+//                                 console.log(vowelsCount);
+// // 8
+
+
+
+                       //after
+                       "use strict";
+
+                        var vowelsCount = 0;
+                        var vowels = ["a", "e", "i", "o", "u"];
+
+                        var str = "Today is best day of my life";
+
+                        // for (let i = 0; i < str.length; i++) {
+                        //   if (vowels.includes(str[i])) vowelsCount++;
+                        // }
+
+                        for (let s of str) {
+                            if (vowels.includes(s)) vowelsCount++; // ES2016 (ES7) syntax
+                        }
+
+                        console.log(vowelsCount);
+
+
+
+                        //challenge 16-Swap values of the two variables
+
+                           // Swap values of the a and b.
+                             //   Don't use for this any new variable.
+                                
+
+                                "use strict";
+
+                                    var a = "first";
+                                    var b = "second";
+                                    [a,b]=[b,a]
+                                    console.log(a, b);
+
+                        // challenge 17 IIFE (Immediately Invoked Function Expression)  (smjhna hai)
+                            // Complete IIFE that will expose following methods:
+                            // greet() - It will take one argument and return greeting string
+                            // changeGreeting() - It will change greeting string
+                            // Initial greeting string "Hey, that's" must be defined inside IIFE.
+
+                            //before 
+
+//                             "use strict";
+
+//                                 // var greeting = (Write IIFE here);
+
+//                                 console.log(greeting.greet("Bob"));
+//                                 // Hey, that's Bob
+
+//                                 console.log(greeting.changeGreeting("Good Morning from"));
+//                                 // undefined
+
+//                                 console.log(greeting.greet("Emily"));
+// // Good Morning from Emily
+
+
+                                      // after
+
+//                                       Complete IIFE that will expose following methods:
+//                                         greet() - It will take one argument and return greeting string
+//                                         changeGreeting() - It will change greeting string
+//                                         Initial greeting string "Hey, that's" must be defined inside IIFE.
+// * /
+
+//                                         "use strict";
+
+//                                         var greeting = (() => {
+//                                             var greetingString = "Hey, that's";
+
+//                                             function greet(name) {
+//                                                 return `${greetingString} ${name}`;
+//                                             }
+
+//                                             function changeGreeting(newGreeting) {
+//                                                 greetingString = newGreeting;
+//                                             }
+
+//                                             return {
+//                                                 greet,
+//                                                 changeGreeting
+//                                             };
+//                                         })();
+
+//                                         console.log(greeting.greet("Bob"));
+//                                         // Hey, that's Bob
+
+//                                         console.log(
+//                                             greeting.changeGreeting("Good Morning from")
+//                                         );
+//                                         // undefined
+
+//                                         console.log(greeting.greet("Emily"));
+// // Good Morning from Emily
+
+
+
+
+
+                //challenge 18- Classes
+                   // Rewrite code below using ES6 Classes
+
+
+             // before
+
+//              "use strict";
+
+//                 var Fruit = function (title, price) {
+//                     this.title = title;
+//                     this.price = price;
+//                 };
+
+//                 Fruit.prototype.priceInfo = function () {
+//                     return `Price of one ${this.title} is \
+// ${this.price}$`;
+//                 };
+
+//                 var apple = new Fruit("Apple", 2);
+//                 console.log(apple.priceInfo());
+//                 // Price of one Apple is 2$
+
+//                 var orange = new Fruit("Orange", 3);
+//                 console.log(orange.priceInfo());
+// // Price of one Orange is 3$
+   
+
+   //after
+   "use strict";
+
+    class Fruit {
+        constructor(title, price) {
+            this.title = title;
+            this.price = price;
+        }
+        priceInfo() {
+            return `Price of one ${this.title} is \
+${this.price}$`;
+        }
+    }
+
+    var apple = new Fruit("Apple", 2);
+    console.log(apple.priceInfo());
+    // Price of one Apple is 2$
+
+    var orange = new Fruit("Orange", 3);
+    console.log(orange.priceInfo());
+// Price of one Orange is 3$
+
+
+
+
+
+
+
+
+
+
+                        
+            </script>
+
+
+
+
+</body>
+</html>
